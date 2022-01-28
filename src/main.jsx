@@ -39,8 +39,9 @@ class App extends React.Component {
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
       ],
       callbacks: {
-        signInSuccess: () => {
-          this.signInSuccess();
+        signInSuccessWithAuthResult: async(authRes) => {
+          console.log(authRes)
+          this.signInSuccess(authRes.user.multiFactor.user);
         },
       },
     };
@@ -71,8 +72,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    firebase.auth().onAuthStateChanged((user) => {
-      this.signInSuccess();
+    firebase.auth().onAuthStateChanged(({user}) => {
+      if(user){
+        this.setState({ user: user.multiFactor.user });
+      }
     });
     this.getLocation().then((data) => {
       let { latitude, longitude, country_code, city } = data.ip;
@@ -169,8 +172,8 @@ class App extends React.Component {
         });
     });
   }
-  signInSuccess() {
-    this.setState({ user: firebase.auth().currentUser.multiFactor.user });
+  signInSuccess(user) {
+    this.setState({ user });
   }
   signOut = () => {
     firebase.auth().signOut();
