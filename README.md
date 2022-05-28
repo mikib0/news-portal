@@ -1,16 +1,9 @@
 # news-portal
 A website made with react that fetches news data from an API and display news headlines and weather forecast.
 
-## Preview
-
-_**Desktop**
-
-![Desktop Preview](./images/desktop-screenshot.png)
-
-_**Mobile**
-
-![Mobile preview](./images/mobile-screenshot.png)
-
+## URL
+  🔗 [mikinews.netlify.com](https://mikinews.netlify.com)
+ 
 ## APIs Consumed
 
 * [NewsAPI](https://newsapi.org) For fetching news data
@@ -26,7 +19,3 @@ _**Mobile**
 
 * [React router](https://reactrouterdotcom.fly.dev) For routing
 * [Bootstwatch](https://bootswatch.com/) Bootstrap theme
-
-###Author
-
-- Twitter - [@Ibrahim_Isa274](https://www.twitter.com/Ibrahim_Isa274)
